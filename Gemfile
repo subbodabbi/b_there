@@ -47,3 +47,7 @@ end
 
 # Makes the front-end nicer
 gem 'bootstrap-sass', '~> 3.3.6'
+
+
+# For user management
+gem 'clearance'
