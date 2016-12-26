@@ -51,3 +51,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 # For user management
 gem 'clearance'
+gem 'country_select'
+
+# For asynchronous forms (ajax forms)
+gem 'responders', '~> 2.0'
+
