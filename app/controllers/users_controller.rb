@@ -1,4 +1,5 @@
 class UsersController < Clearance::UsersController
+  respond_to :html, :js
 
   def new
     @user = User.new
@@ -7,9 +8,10 @@ class UsersController < Clearance::UsersController
   def create
     @user = User.new(user_params)
       if @user.save
-        redirect_to "/"
+        flash[:notice] = "Sucessfully registered to BnB There!"
+        redirect_back_or url_after_create
       else
-        render template: "users/new"
+        respond_with( @user, :layout => !request.xhr? )
       end
   end
 
