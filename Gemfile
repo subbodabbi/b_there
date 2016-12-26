@@ -56,3 +56,7 @@ gem 'country_select'
 # For asynchronous forms (ajax forms)
 gem 'responders', '~> 2.0'
 
+
+# Privacy protection
+gem "figaro"
+
