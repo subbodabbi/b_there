@@ -5,7 +5,7 @@ class ListingsController < ApplicationController
 	  if params[:tag]
 	    @listings = Listing.tagged_with(params[:tag])
       else
-		@listings = Listing.all
+		@listings = Listing.order(id: :desc).page params[:page]
 	  end
 	end
 
