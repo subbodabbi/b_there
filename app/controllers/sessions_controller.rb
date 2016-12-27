@@ -30,7 +30,7 @@ class SessionsController < Clearance::SessionsController
       user = User.create_with_auth_and_hash(authentication, auth_hash)
       #should be @next = edit_user_path(user) , but there is no edit path yet
       @next = root_url      
-      @notice = "User created ‐ confirm or edit details..."
+      @notice = "User created"
     end
 
     sign_in(user)
