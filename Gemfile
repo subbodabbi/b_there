@@ -67,4 +67,10 @@ gem "figaro"
 # Tagging gems
 gem 'acts-as-taggable-on'
 
+# Pagination
+gem 'kaminari'
+
+# For seeding databases
+gem 'faker'
+
 
