@@ -63,3 +63,8 @@ gem 'responders', '~> 2.0'
 # Privacy protection
 gem "figaro"
 
+
+# Tagging gems
+gem 'acts-as-taggable-on'
+
+

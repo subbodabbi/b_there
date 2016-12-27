@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   root 'listings#index'
+  get 'tags/:tag', to: 'listings#index', as: :tag
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
