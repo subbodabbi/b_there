@@ -1,4 +1,7 @@
-<h2>Title: <%= @listing.title %></h2>
+<h2><%= @listing.title %></h2>
+
+<%= image_tag @listing.image_url(:thumb) if @listing.image? %>
+
 <div>
   Posted By: <%= link_to @listing.user.email, user_path(@listing.user.id) %>
 </div>
@@ -6,9 +9,11 @@
 <h3>Maximum Number of Guests: <%= @listing.max_guests %></h3>
 <h3>Address:</h3>
 <p><%= @listing.address %></p>
+<% if @listing.verification == true %> <p> Verified! </p> <% end %>
 <h3>Some Info:</h3>
 <p><%= @listing.description %></p>
 <h3>Tags: </h3>
 <p><%= raw @listing.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+
 
 <%= link_to "Edit Listing", edit_listing_path(@listing) %>

@@ -1,5 +1,7 @@
 <h2>User Profile:</h2>
 
+<%= image_tag @user.avatar_url(:thumb) if @user.avatar? %>
+
 <h3>Email: <%= @user.email %></h2>
 <h3>Name: <%= @user.first_name + " " + @user.last_name %></h3>
 <h3>Phone Number: <%= @user.phone_number %></h3>

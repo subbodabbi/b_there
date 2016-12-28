@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   has_many :authentications, :dependent => :destroy
   has_many :listings
+  enum access_level: [:customer, :moderator, :superadmin]
+  mount_uploader :avatar, AvatarUploader  
 
   def self.create_with_auth_and_hash(authentication, auth_hash)
    create! do |u|

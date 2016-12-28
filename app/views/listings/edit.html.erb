@@ -1,6 +1,6 @@
   <h2> Edit Listing: </h2>
 
-  <%= form_for @listing, remote: true, :html => { :id => 'new-listing-form' } do |form| %>
+  <%= form_for @listing, remote: true, authenticity_token: true, :html => { :id => 'new-listing-form', :multipart => true } do |form| %>
     <%= render partial: '/listings/form', object: form %>
 
     <div class="submit-field">

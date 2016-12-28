@@ -4,6 +4,10 @@ class UsersController < Clearance::UsersController
 
   def index
     @users = User.all
+    if current_user.customer?
+      flash[:notice] = "Access denied."
+      return redirect_to root_path
+    end
   end
 
   def new
@@ -43,7 +47,7 @@ class UsersController < Clearance::UsersController
 private
 
  def user_params
-   params.require(:user).permit(:email, :password, :first_name, :last_name, :country, :phone_number)
+   params.require(:user).permit(:email, :password, :first_name, :last_name, :country, :phone_number, :avatar)
  end
 
 end

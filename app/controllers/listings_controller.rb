@@ -43,10 +43,10 @@ class ListingsController < ApplicationController
 	def destroy
 	end
 
-private
+  private
 
 	def listing_params
-		params.require(:listing).permit(:title, :description, :address, :max_guests, :price, :tag_list)
+		params.require(:listing).permit(:title, :description, :address, :max_guests, :price, :tag_list, :verification, :image)
     end
 
 end
