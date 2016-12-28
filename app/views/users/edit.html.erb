@@ -1,6 +1,6 @@
   <h2> Edit User: </h2>
 
-  <%= form_for @user, remote: true, :html => { :id => 'edit-user-form' } do |form| %>
+  <%= form_for @user, remote: true, authenticity_token: true, :html => { :id => 'edit-user-form', :multipart => true  } do |form| %>
     <%= render partial: '/users/form', object: form %>
 
     <div class="submit-field">
