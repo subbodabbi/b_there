@@ -1,0 +1,11 @@
+<div class="new-listing" >
+  <h2> New Listing: </h2>
+
+  <%= form_for @listing, remote: true, :html => { :id => 'new-listing-form' } do |form| %>
+    <%= render partial: '/listings/form', object: form %>
+
+    <div class="submit-field">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

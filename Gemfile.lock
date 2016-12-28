@@ -36,6 +36,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (4.0.0)
+      activerecord (>= 4.0)
     arel (6.0.3)
     autoprefixer-rails (6.5.4)
       execjs
@@ -71,6 +73,8 @@ GEM
       activemodel
     erubis (2.7.0)
     execjs (2.7.0)
+    faker (1.6.3)
+      i18n (~> 0.5)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
     figaro (1.1.1)
@@ -89,6 +93,9 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.3)
     jwt (1.5.6)
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -195,14 +202,17 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   bootstrap-sass (~> 3.3.6)
   byebug
   clearance
   coffee-rails (~> 4.1.0)
   country_select
+  faker
   figaro
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   omniauth
   omniauth-facebook
   pg (~> 0.15)
