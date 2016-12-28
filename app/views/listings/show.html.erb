@@ -1,4 +1,7 @@
-<h2>Title: <%= @listing.title %></h2>
+<h2><%= @listing.title %></h2>
+
+<%= image_tag @listing.image_url(:thumb) if @listing.image? %>
+
 <div>
   Posted By: <%= link_to @listing.user.email, user_path(@listing.user.id) %>
 </div>

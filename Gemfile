@@ -55,14 +55,11 @@ gem 'country_select'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
-
 # For asynchronous forms (ajax forms)
 gem 'responders', '~> 2.0'
 
-
 # Privacy protection
 gem "figaro"
-
 
 # Tagging gems
 gem 'acts-as-taggable-on'
@@ -73,4 +70,6 @@ gem 'kaminari'
 # For seeding databases
 gem 'faker'
 
-
+# For image uploads
+gem 'carrierwave'
+gem 'mini_magick'
