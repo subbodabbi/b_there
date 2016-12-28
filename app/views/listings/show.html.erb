@@ -1,6 +1,6 @@
 <h2>Title: <%= @listing.title %></h2>
 <div>
-  Posted By: <%= @listing.user.email %>
+  Posted By: <%= link_to @listing.user.email, user_path(@listing.user.id) %>
 </div>
 <h3>Price: <%= @listing.price %></h3>
 <h3>Maximum Number of Guests: <%= @listing.max_guests %></h3>
