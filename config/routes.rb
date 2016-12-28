@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, only: [:create]
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update]
   resources :users, only: [:create] do
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
+  end
+
+  resources :controller do 
+    post :verification
   end
 
   resources :listings

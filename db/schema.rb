@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161227093062) do
+ActiveRecord::Schema.define(version: 20161228060958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,9 +33,10 @@ ActiveRecord::Schema.define(version: 20161227093062) do
     t.integer  "price"
     t.string   "title"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "max_guests"
+    t.boolean  "verification", default: false, null: false
   end
 
   add_index "listings", ["user_id"], name: "index_listings_on_user_id", using: :btree
@@ -68,16 +69,17 @@ ActiveRecord::Schema.define(version: 20161227093062) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "email",                          null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "email",                                      null: false
     t.string   "encrypted_password", limit: 128
     t.string   "confirmation_token", limit: 128
-    t.string   "remember_token",     limit: 128, null: false
+    t.string   "remember_token",     limit: 128,             null: false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "country"
     t.string   "phone_number"
+    t.integer  "access_level",                   default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree

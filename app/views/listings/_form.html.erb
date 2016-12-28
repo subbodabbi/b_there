@@ -13,17 +13,25 @@
   <%= form.text_field :address %>
 </div>
 
-<div class="number-field">
+<div class="number-fields">
   <%= form.label :max_guests %>
   <%= form.number_field :max_guests %>
 </div>
 
-<div class="number-field">
+<div class="number-fields">
   <%= form.label :price %>
   <%= form.number_field :price %>
 </div>
 
-<div class="field">
+<div class="text-fields">
   <%= form.label :tag_list, "Tags (separated by commas)" %>
   <%= form.text_field :tag_list %>
 </div>
+
+
+<% if !current_user.customer? %>
+<div class="check-box" >
+  <%= form.label :verification %>
+  <%= form.check_box :verification %>
+</div>
+<% end %>
