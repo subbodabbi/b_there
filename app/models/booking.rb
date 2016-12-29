@@ -6,6 +6,7 @@ class Booking < ActiveRecord::Base
 
   def check_overlapping_dates
   	listing.bookings.each do |old_booking|
+      byebug
   		 if overlap?(self, old_booking)
   		  return errors.add(:overlapping_dates, "Sorry, but the dates have already been taken")
   		end

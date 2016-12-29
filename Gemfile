@@ -46,7 +46,7 @@ group :development do
 end
 
 # Makes the front-end nicer
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass'
 
 
 # For user management

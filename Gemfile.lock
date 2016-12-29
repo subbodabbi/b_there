@@ -213,7 +213,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
-  bootstrap-sass (~> 3.3.6)
+  bootstrap-sass
   byebug
   carrierwave!
   clearance
