@@ -15,6 +15,7 @@ class UsersController < Clearance::UsersController
   end
 
   def show
+    @bookings = @user.bookings
   end
 
   def edit

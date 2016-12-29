@@ -1,0 +1,26 @@
+<%= form_for [@listing, @booking] do |form| %>
+<% if @errors.present? %>
+  <div>
+    <%= @errors %>
+  </div>
+<% end %>
+
+
+<div class="number-field">
+  <%= form.label :num_guests %>
+  <%= form.number_field :num_guests %>
+</div>
+
+<div class="date-fields">
+  <%= form.label :start_date %>
+  <%= form.date_field :start_date %>
+</div>
+
+<div class="date-fields">
+  <%= form.label :end_date %>
+  <%= form.date_field :end_date %>
+</div>
+
+<%= form.submit "BOOK NOW" %>
+
+<% end %>

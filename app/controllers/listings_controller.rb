@@ -21,6 +21,7 @@ class ListingsController < ApplicationController
 	end
 
 	def show
+	  @booking = @listing.bookings.new
 	end
 
 	def edit
@@ -46,7 +47,7 @@ class ListingsController < ApplicationController
   private
 
 	def listing_params
-		params.require(:listing).permit(:title, :description, :address, :max_guests, :price, :tag_list, :verification, :image)
+		params.require(:listing).permit(:title, :description, :address, :max_guests, :price, :tag_list, :verification, {images: []})
     end
 
 end

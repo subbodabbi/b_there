@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :authentications, :dependent => :destroy
   has_many :listings
+  has_many :bookings
   enum access_level: [:customer, :moderator, :superadmin]
   mount_uploader :avatar, AvatarUploader  
 
