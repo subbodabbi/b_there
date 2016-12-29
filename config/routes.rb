@@ -12,7 +12,11 @@ Rails.application.routes.draw do
     post :verification
   end
 
-  resources :listings
+  resources :listings do
+    resources :bookings, only: [:create]
+  end
+
+  resources :bookings, only: [:create, :destroy]
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
