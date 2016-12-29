@@ -1,6 +1,9 @@
 <h2><%= @listing.title %></h2>
 
-<%= image_tag @listing.image_url(:thumb) if @listing.image? %>
+<% images = @listing.images %>
+<% images.each do |i| %>
+  <%= image_tag i.thumb.url %>
+<% end %>
 
 <div>
   Posted By: <%= link_to @listing.user.email, user_path(@listing.user.id) %>

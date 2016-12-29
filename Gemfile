@@ -71,5 +71,5 @@ gem 'kaminari'
 gem 'faker'
 
 # For image uploads
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
