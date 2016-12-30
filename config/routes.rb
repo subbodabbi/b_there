@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get 'welcome/index'
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+  get '/listings/:id(.:format)/bookings' => "listings#show"
   root 'listings#index'
   get 'tags/:tag', to: 'listings#index', as: :tag
 
