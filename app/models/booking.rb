@@ -7,7 +7,7 @@ class Booking < ActiveRecord::Base
   def check_overlapping_dates
   	listing.bookings.each do |old_booking|
   		 if overlap?(self, old_booking)
-  		  return errors.add(:overlapping_dates, "Sorry, but the dates have already been taken")
+  		  return errors.add(:overlapping_dates, ":Sorry, but the dates have already been taken")
   		end
   	end
   end
@@ -19,7 +19,7 @@ class Booking < ActiveRecord::Base
   def check_max_guests
   	max_guests = listing.max_guests
   	return if num_guests < max_guests
-	errors.add(:max_guests, "Maximum number of guests exceeded")
+	errors.add(:max_guests, ":Maximum number of guests exceeded")
   end
 
   def total_price
