@@ -11,15 +11,44 @@
   <%= form.number_field :num_guests %>
 </div>
 
-<div class="date-fields">
-  <%= form.label :start_date %>
-  <%= form.date_field :start_date %>
+
+<div class="container">
+        <div class="form-group">
+        <%= form.label :start_date %>
+            <div class='input-group date' id='datetimepicker6'>
+              <%= form.text_field :start_date%>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+        <%= form.label :end_date %>
+            <div class='input-group date' id='datetimepicker7' >
+              <%= form.text_field :end_date %>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
 </div>
 
-<div class="date-fields">
-  <%= form.label :end_date %>
-  <%= form.date_field :end_date %>
-</div>
+<script type="text/javascript">
+   $(document).ready(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+            dateFormat: 'YYYY-mm-dd'
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+            dateFormat: 'YYYY-mm-dd'
+        });
+    });
+</script>
 
 <%= form.submit "BOOK NOW" %>
 
