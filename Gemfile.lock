@@ -57,6 +57,8 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap3-datetimepicker-rails (4.14.30)
+      momentjs-rails (>= 2.8.1)
     builder (3.2.2)
     byebug (9.0.6)
     clearance (1.15.1)
@@ -247,6 +249,8 @@ GEM
     mini_magick (4.6.0)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
+    momentjs-rails (2.15.1)
+      railties (>= 3.1)
     money (6.7.1)
       i18n (>= 0.6.4, <= 0.7.0)
       sixarm_ruby_unaccent (>= 1.1.1, < 2)
@@ -353,6 +357,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   bootstrap-sass
+  bootstrap3-datetimepicker-rails (~> 4.14.30)
   byebug
   carrierwave!
   clearance
@@ -365,6 +370,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mini_magick
+  momentjs-rails (>= 2.9.0)
   omniauth
   omniauth-facebook
   pg (~> 0.15)
