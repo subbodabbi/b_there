@@ -76,3 +76,6 @@ gem 'faker'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'fog'
+
+# Payment gateway & APIs
+gem 'braintree'
