@@ -3,7 +3,7 @@ class ListingsController < ApplicationController
 	
 	def index
 	  if params[:tag]
-	    @listings = Listing.tagged_with(params[:tag])
+	  	@listings = Listing.tagged_with(params[:tag]).page params[:page]
       else
 		@listings = Listing.order(id: :desc).page params[:page]
 	  end
