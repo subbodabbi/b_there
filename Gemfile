@@ -85,3 +85,4 @@ gem "letter_opener", :group => :development
 
 # Active Mailer
 gem 'mail'
+gem 'sidekiq'

@@ -6,7 +6,7 @@ before_action :find_booking, only: [:show, :destroy]
   	@booking = current_user.bookings.new(booking_params)
   	@booking.listing = @listing
   	  if @booking.save
-        BookingMailer.booking_email(current_user, @listing.user, @booking.id).deliver_later
+        BookingJob.perform_later(current_user, @listing.user, @booking.id)
   	  	redirect_to current_user
   	  else
   	  	@errors = @booking.errors.full_messages
