@@ -20,6 +20,8 @@
 
 </head>
 <body>
+
+<div class="container" >
   <div id="header">
     <% if signed_in? -%>
       <%= link_to "Home Page", root_path %>    
@@ -38,5 +40,6 @@
   </div>
 
   <%= yield %>
+</div>
 </body>
 </html>

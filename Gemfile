@@ -79,3 +79,9 @@ gem 'fog'
 
 # Payment gateway & APIs
 gem 'braintree'
+
+# Previews emails
+gem "letter_opener", :group => :development
+
+# Active Mailer
+gem 'mail'

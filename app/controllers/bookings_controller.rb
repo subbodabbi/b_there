@@ -1,10 +1,12 @@
 class BookingsController < ApplicationController
+before_action :find_booking, only: [:show, :destroy]
 
   def create
   	@listing = Listing.find(params[:listing_id])
   	@booking = current_user.bookings.new(booking_params)
   	@booking.listing = @listing
   	  if @booking.save
+        BookingMailer.booking_email(current_user, @listing.user, @booking.id).deliver_later
   	  	redirect_to current_user
   	  else
   	  	@errors = @booking.errors.full_messages
@@ -13,9 +15,15 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-  	@booking = Booking.find(params[:id])
   	@booking.destroy
   	redirect_to @booking.user
+  end
+
+  def show
+  end
+
+  def find_booking
+    @booking = Booking.find(params[:id])
   end
 
   private
