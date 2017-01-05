@@ -1,19 +1,44 @@
 <%= link_to "Create New Listing", new_listing_path %>
 
+<div class="search-bars">
+
+<p> Search Bar: </p>
+<%= form_tag(listings_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search!" %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<p> Search by Tagging: </p>
+<%= form_tag(listings_path, :method => "get", id: "search-form-tagging") do %>
+<%= text_field_tag :tag, params[:tag], placeholder: "Search Tags!" %>
+<%= submit_tag "Search" %>
+<% end %>
+
+
+
+</div>
+
 <div id="tag_cloud">
   <% tag_cloud Listing.tag_counts, %w[s m l] do |tag, css_class| %>
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
   <% end %>
 </div>
 
+<% if @listings.present? %>
+
 <table>
   <%= paginate @listings %>
   <% @listings.each do |listing| %>
-    <tr>
+    <tr>  
       <td><%= link_to listing.title, listing %></td>
+      <td>RM<%= listing.price %> per night</td>    
     </tr>
     <tr>
       <td>Tags: <%= raw listing.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
     </tr> 
   <% end %>
+
+<% else %>
+  <p>There are no listings containing the term(s): <%= params[:search] %>.</p>
+<% end %>
 </table>
