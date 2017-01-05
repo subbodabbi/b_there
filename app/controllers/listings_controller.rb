@@ -4,8 +4,10 @@ class ListingsController < ApplicationController
 	def index
 	  if params[:tag]
 	  	@listings = Listing.tagged_with(params[:tag]).page params[:page]
+      elsif params[:search]
+        @listings = Listing.search(params[:search]).order(id: :desc).page params[:page]
       else
-		@listings = Listing.order(id: :desc).page params[:page]
+        @listings = Listing.all.order(id: :desc).page params[:page]	
 	  end
 	end
 
@@ -47,7 +49,11 @@ class ListingsController < ApplicationController
   private
 
 	def listing_params
-		params.require(:listing).permit(:title, :description, :address, :max_guests, :price, :tag_list, :verification, {images: []})
+	  params.require(:listing).permit(:title, :description, :address, :max_guests, :price, :tag_list, :verification, {images: []})
+    end
+
+    def filtering_params(params)
+      params.slice(:title, :min_price, :max_price, :address, :guest_num)
     end
 
 end
